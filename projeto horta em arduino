@@ -1,0 +1,75 @@
+
+
+
+void setup() {
+
+  pinMode(0, INPUT);    //sensor humidade 
+  pinMode(5, OUTPUT);  //azul molhado
+  pinMode(6, OUTPUT);  //amarelo molhando
+  pinMode(7, OUTPUT);  // vermelho terra seca
+  pinMode(8, OUTPUT);  // bomba
+
+
+ Serial.begin(9600);
+
+}
+
+
+
+
+  void loop() {
+
+ int ledazul = 5, ledamarelo = 6, ledvermelho = 7, bomba = 8, sensor = 0;
+  
+  sensor =  analogRead(0);
+  Serial.println(sensor);
+  delay(500);
+
+
+//leds
+
+
+if(sensor >= 800){
+
+  digitalWrite(ledazul, LOW);
+  digitalWrite(ledvermelho, HIGH);
+
+
+  delay(10000);
+  digitalWrite(ledamarelo, HIGH);
+
+
+  
+}else{
+  digitalWrite(ledazul, HIGH);
+  digitalWrite(ledvermelho, LOW);
+
+
+}
+
+  
+if(sensor >= 800){
+
+    
+
+
+ 
+  digitalWrite(bomba, HIGH);
+  delay(4000);
+  
+
+  digitalWrite(bomba, LOW);
+  delay(5000);
+
+  
+}else{
+
+  
+  digitalWrite(ledamarelo, LOW);
+}
+   
+}
+
+
+
+
