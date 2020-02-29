@@ -1,0 +1,80 @@
+
+
+
+void setup() {
+
+  
+
+   pinMode(A2, INPUT);
+   pinMode(2, OUTPUT);  //verde
+   pinMode(3, OUTPUT);  //vermelho
+   pinMode(4, OUTPUT);  // azul
+
+
+  Serial.begin(9600);
+  
+ 
+
+
+}
+
+void loop() {
+
+  int verde = 2, vermelho = 3, azul = 4, sensor = A2;
+  
+  sensor =  analogRead(A2);
+ 
+  Serial.println(sensor);
+ 
+  if(sensor <= 4){
+
+
+       
+  digitalWrite(azul, LOW);
+  digitalWrite(vermelho, LOW);
+  digitalWrite(verde, HIGH);
+
+  
+  
+}else{ if (sensor <= 100){
+
+     digitalWrite(verde, LOW);
+  digitalWrite(vermelho, LOW);
+  digitalWrite(azul, HIGH);
+
+}else{ if (sensor <= 300){
+
+
+ digitalWrite(verde, LOW);
+ 
+  digitalWrite(azul, LOW);
+   digitalWrite(vermelho, HIGH);
+  
+
+   
+}else{
+  
+    digitalWrite(vermelho, HIGH);
+    delay(1000);
+    digitalWrite(vermelho, LOW);
+    delay(1000);
+    
+
+    
+     digitalWrite(azul, HIGH);
+      delay(1000);
+         digitalWrite(azul, LOW);
+      delay(1000);
+      digitalWrite(verde, HIGH);
+       delay(1000);
+          digitalWrite(verde, LOW);
+       delay(1000);
+  
+}
+}
+}
+
+
+}
+
+
